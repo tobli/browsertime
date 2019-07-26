@@ -41,7 +41,7 @@ before_install:
   - python -m pip install --user pyssim
   - python -m pip show Pillow
   - python -m pip show pyssim
-  - wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz && tar --strip-components 1 -C /usr/bin -xf ffmpeg-release-amd64-static.tar.xz --wildcards * ffmpeg */ffprobe && rm ffmpeg-release-amd64-static.tar.xz
+  - wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz && sudo tar --strip-components 1 -C /usr/bin -xf ffmpeg-release-amd64-static.tar.xz --wildcards * ffmpeg */ffprobe && rm ffmpeg-release-amd64-static.tar.xz
   - ffmpeg -version
   - /usr/bin/python --version
   - python --version
