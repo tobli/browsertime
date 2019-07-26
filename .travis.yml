@@ -49,7 +49,9 @@ before_install:
   - firefox --version 2>/dev/null
   - google-chrome --product-version
   - fc-list
+  - mkdir /tmp/browsertime-GMyQoQA/
   - ls -la /tmp
+  - whoami
 before_script:
   - export DISPLAY=:99.0
   - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile
