@@ -3,6 +3,8 @@ node_js:
   - "10"
 sudo: required
 dist: bionic
+services:
+  - xvfb
 cache:
   apt: true
   pip: true
@@ -46,8 +48,9 @@ before_install:
   - firefox --version 2>/dev/null
   - google-chrome --product-version
   - fc-list
+  services:
+  - xvfb
 before_script:
-  - xvfb-run --server-args="-screen 0 1024x768x24"
 install:
   - npm ci
 script:
