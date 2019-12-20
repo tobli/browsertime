@@ -32,7 +32,7 @@ addons:
       - xz-utils
       - ttf-ubuntu-font-family
       - xz-utils
-      - imagemagick 
+      - imagemagick
   firefox: "latest"
   chrome: stable
 before_install:
@@ -48,7 +48,7 @@ before_install:
   - which python
   - firefox --version 2>/dev/null
   - google-chrome --product-version
-  - magick --version
+  - convert --version
 before_script:
 install:
   - npm ci
