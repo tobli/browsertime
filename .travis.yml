@@ -47,10 +47,10 @@ before_install:
   - google-chrome --product-version
   - fc-list
 before_script:
+  - xvfb-run --server-args="-screen 0 1024x768x24"
 install:
   - npm ci
 script:
-  - xvfb-run --server-args="-screen 0 1024x768x24"
   - ./vendor/visualmetrics.py --check
   - npm run travis
   - node ./bin/browsertime.js -b firefox -n 1 https://www.sitespeed.io --connectivity.profile cable --connectivity.engine throttle
