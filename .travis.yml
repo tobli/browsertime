@@ -32,6 +32,7 @@ addons:
       - xz-utils
       - ttf-ubuntu-font-family
       - xz-utils
+      - imagemagick 
   firefox: "latest"
   chrome: stable
 before_install:
