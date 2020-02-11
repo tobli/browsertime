@@ -1666,6 +1666,7 @@ def calculate_contentful_speed_index(progress, directory):
             )
             print(p)
             output = subprocess.check_output(command, shell=True).decode('utf-8')
+            print(subprocess.check_output('convert --version', shell=True).decode('utf-8'))
             logging.debug("Output %s" % output)
 
             print(output)
