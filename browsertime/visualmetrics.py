@@ -1668,6 +1668,7 @@ def calculate_contentful_speed_index(progress, directory):
             output = subprocess.check_output(command, shell=True).decode('utf-8')
             logging.debug("Output %s" % output)
 
+            print(output)
             # Take the last matching pixel count, which is the pixel count from the last
             # line
             pixel_count = matcher.findall(output)[-1]
