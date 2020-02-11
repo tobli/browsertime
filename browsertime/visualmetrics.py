@@ -1664,6 +1664,7 @@ def calculate_contentful_speed_index(progress, directory):
             command = "{0} {1} -canny 2x2+8%+8% -define histogram:unique-colors=true -format %c histogram:info:-".format(
                 image_magick["convert"], current_frame
             )
+            print(p)
             output = subprocess.check_output(command, shell=True).decode('utf-8')
             logging.debug("Output %s" % output)
 
@@ -1675,6 +1676,7 @@ def calculate_contentful_speed_index(progress, directory):
                 return None, None
 
             value = int(pixel_count)
+            print(value)
             if value > maxContent:
                 maxContent = value
             content.append(value)
@@ -1684,12 +1686,14 @@ def calculate_contentful_speed_index(progress, directory):
                 maxContent == 0 and 0.0 or float(content[i]) / float(maxContent)
             )
 
+
         # Assume 0 content for first frame
         cont_si = 1 * (progress[1]["time"] - progress[0]["time"])
         completeness_value = [(progress[1]["time"], int(cont_si))]
         for i in range(1, len(progress) - 1):
             elapsed = progress[i + 1]["time"] - progress[i]["time"]
             # print i,' time =',p['time'],'elapsed =',elapsed,'content = ',content[i]
+            print(cont_si)
             cont_si += elapsed * (1.0 - content[i])
             completeness_value.append((progress[i + 1]["time"], int(cont_si)))
 
