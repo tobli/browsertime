@@ -49,13 +49,13 @@ matrix:
         - choco install ffmpeg
         - choco install imagemagick.app
         - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
-        - dir "/c/Program\ Files"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
         - python -m pip --version
         - python -m pip show Pillow
         - python -m pip show pyssim
+        - dir "/c/Program Files"
       script:
         - node ./bin/browsertime.js -b chrome -n 1 https://www.sitespeed.io/documentation/
         - node ./bin/browsertime.js -b chrome test/navigationscript/multi.js -n 3 --chrome.timeline --viewPort 1000x600
