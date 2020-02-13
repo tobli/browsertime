@@ -43,6 +43,7 @@ matrix:
         - choco install python 
         # - choco install firefox
         - wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-win64.zip
+        - wget https://msedgedriver.azureedge.net/80.0.361.47/edgedriver_win64.zip
         - choco install unzip
         - choco install microsoft-edge
         - choco install chromedriver
@@ -50,7 +51,7 @@ matrix:
         - choco install ffmpeg
         - choco install imagemagick.app
         - cmd.exe //c "RefreshEnv.cmd"
-        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        - export PATH="/c/Python38:/c:/ProgramData/chocolatey/lib/ffmpeg/tools:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
@@ -58,7 +59,7 @@ matrix:
         - python -m pip show Pillow
         - python -m pip show pyssim
         - dir "/c/Program Files"
-        - dir "/c/
+        - dir "/c/Program Files/ImageMagick-7.0.9-Q16"
         - unzip geckodriver-v0.26.0-win64.zip
         - python ./browsertime/visualmetrics.py --check
       script:
