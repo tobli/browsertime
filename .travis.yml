@@ -49,9 +49,9 @@ matrix:
         - choco install chromedriver
         - choco install googlechrome
         - choco install ffmpeg
-        - choco install imagemagick.app
+        - choco install imagemagick
         - cmd.exe //c "RefreshEnv.cmd"
-        - export PATH="/c/Python38:/c:/ProgramData/chocolatey/lib/ffmpeg/tools:/c/Python38/Scripts:$PATH"
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
@@ -59,8 +59,10 @@ matrix:
         - python -m pip show Pillow
         - python -m pip show pyssim
         - dir "/c/Program Files"
-        - dir "/c/Program Files/ImageMagick-7.0.9-Q16"
+        - dir "/c/ProgramData/chocolatey/lib/ffmpeg/tools"
+        - dir "/c/ProgramData/chocolatey/lib/"
         - unzip geckodriver-v0.26.0-win64.zip
+        - unzip edgedriver_win64.zip
         - python ./browsertime/visualmetrics.py --check
       script:
         - node ./bin/browsertime.js -b chrome -n 1 https://www.sitespeed.io/documentation/
