@@ -41,7 +41,7 @@ matrix:
       os: windows         
       before_install:
         - choco install python 
-        - choco install firefox
+        #- choco install firefox
         - choco install unzip
         - choco install microsoft-edge
         - choco install chromedriver
