@@ -58,7 +58,7 @@ matrix:
         - python -m pip show Pillow
         - python -m pip show pyssim
         - unzip ffmpeg-4.1.1-win64-static.zip
-        - chdir
+        - dir C:/ProgramData
         #- unzip ImageMagick-7.0.8-39-portable-Q16-x64.zip
         - unzip geckodriver-v0.26.0-win64.zip
         - unzip edgedriver_win64.zip
