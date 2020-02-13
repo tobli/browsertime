@@ -58,6 +58,7 @@ matrix:
         - python -m pip show Pillow
         - python -m pip show pyssim
         - dir "/c/Program Files"
+        - unzip geckodriver-v0.26.0-win64.zip
         - python ./browsertime/visualmetrics.py --check
       script:
         - node ./bin/browsertime.js -b chrome -n 1 https://www.sitespeed.io/documentation/
