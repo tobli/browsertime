@@ -50,7 +50,6 @@ matrix:
         - choco install googlechrome
         - choco install ffmpeg
         - choco install imagemagick
-        - Update-SessionEnvironment
         - export PATH="/c/Python38:/c/ProgramData/chocolatey/lib/ffmpeg/tools:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
@@ -58,7 +57,6 @@ matrix:
         - python -m pip --version
         - python -m pip show Pillow
         - python -m pip show pyssim
-        - dir "/c/ProgramData/chocolatey/lib/imagemagick/tools"
         - unzip geckodriver-v0.26.0-win64.zip
         - unzip edgedriver_win64.zip
         - python ./browsertime/visualmetrics.py --check
