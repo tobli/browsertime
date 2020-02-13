@@ -42,14 +42,15 @@ matrix:
       before_install:
         - choco install python 
         # - choco install firefox
-        # wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-win64.zip
+        - wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-win64.zip
+        - choco install unzip
         - choco install microsoft-edge
         - choco install chromedriver
         - choco install googlechrome
-        #- cmd.exe //c "RefreshEnv.cmd"
         - choco install ffmpeg
         - choco install imagemagick.app
-        - export PATH="/c/Python38:/c/Program Files/ImageMagick-7.0.9-Q16/bin:/c/Python38/Scripts:$PATH"
+        - cmd.exe //c "RefreshEnv.cmd"
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
