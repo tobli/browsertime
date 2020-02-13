@@ -51,16 +51,14 @@ matrix:
         - choco install ffmpeg
         - choco install imagemagick
         - cmd.exe //c "RefreshEnv.cmd"
-        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        - export PATH="/c/Python38:/c/ProgramData/chocolatey/lib/ffmpeg/tools:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
         - python -m pip --version
         - python -m pip show Pillow
         - python -m pip show pyssim
-        - dir "/c/Program Files"
-        - dir "/c/ProgramData/chocolatey/lib/ffmpeg/tools"
-        - dir "/c/ProgramData/chocolatey/lib/"
+        - dir "/c/ProgramData/chocolatey/lib/imagemagick"
         - unzip geckodriver-v0.26.0-win64.zip
         - unzip edgedriver_win64.zip
         - python ./browsertime/visualmetrics.py --check
