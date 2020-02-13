@@ -49,7 +49,7 @@ matrix:
         #- cmd.exe //c "RefreshEnv.cmd"
         - choco install ffmpeg
         - choco install imagemagick.app
-        - export PATH="/c/Python38:/c/Program Files/ImageMagick-7.0.9-Q16:/c/Python38/Scripts:$PATH"
+        - export PATH="/c/Python38:/c/Program Files/ImageMagick-7.0.9-Q16/bin:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
