@@ -50,6 +50,7 @@ matrix:
         - choco install googlechrome
         - choco install ffmpeg
         - choco install imagemagick
+        - call RefreshEnv.cmd
         - Update-SessionEnvironment
         - export PATH="/c/Python38:/c/ProgramData/chocolatey/lib/ffmpeg/tools:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
