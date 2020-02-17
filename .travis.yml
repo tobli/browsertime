@@ -73,10 +73,9 @@ matrix:
         - choco install unzip
         - wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200216-8578433-win64-static.zip
         - unzip ffmpeg-20200216-8578433-win64-static.zip
-        - export PATH="/c/Python38:/c/Python38/Scripts:$TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin/:$PATH"
-        - path
+        - export PATH="/c/Python38:/c/Python38/Scripts:$TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin:$PATH"
         - RefreshEnv.cmd
-        - path
+        - ffmpeg
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
