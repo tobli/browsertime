@@ -71,8 +71,7 @@ matrix:
         - choco install googlechrome --ignore-checksums
         #- cmd.exe //c "RefreshEnv.cmd"
         - choco install unzip
-        - wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200216-8578433-win64-static.zip
-        - unzip ffmpeg-20200216-8578433-win64-static.zip
+        - choco install ffmpeg
         - export PATH="/c/Python38:/c/Python38/Scripts:$TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin:$PATH"
         - RefreshEnv.cmd
         - ffmpeg
