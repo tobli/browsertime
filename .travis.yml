@@ -73,7 +73,6 @@ matrix:
         - choco install wget unzip
         - wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200216-8578433-win64-static.zip
         - unzip ffmpeg-20200216-8578433-win64-static.zip
-        - chdir
         - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
