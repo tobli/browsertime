@@ -70,10 +70,11 @@ matrix:
         # See https://www.gep13.co.uk/blog/chocolatey-error-hashes-do-not-match#so-why-did-this-go-wrong
         - choco install googlechrome --ignore-checksums
         #- cmd.exe //c "RefreshEnv.cmd"
-        - choco install wget unzip
+        - choco install unzip
         - wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200216-8578433-win64-static.zip
         - unzip ffmpeg-20200216-8578433-win64-static.zip
-        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        - export PATH="/c/Python38:/c/Python38/Scripts:$TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin/:$PATH"
+        - cmd //C RefreshEnv.cmd
         - python -m pip install --upgrade --user pip
         - python -m pip install --upgrade --user setuptools
         - python -m pip install --user pyssim
