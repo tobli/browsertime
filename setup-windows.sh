@@ -4,9 +4,9 @@ set -x
 choco install curl
 choco install unzip
 
-curl -o ffmpeg.zip https://github.com/ncalexan/geckodriver/releases/download/v0.24.0-android/ffmpeg-4.1.1-macos64-static.zip
+curl -o $TRAVIS_BUILD_DIR/ffmpeg.zip https://github.com/ncalexan/geckodriver/releases/download/v0.24.0-android/ffmpeg-4.1.1-win64-static.zip
 
-unzip ffmpeg.zip -d $TRAVIS_BUILD_DIR/ffmpeg
+unzip $TRAVIS_BUILD_DIR/ffmpeg.zip -d $TRAVIS_BUILD_DIR/ffmpeg
 
 echo "SUCCESS 1"
 
