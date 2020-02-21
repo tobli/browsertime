@@ -64,6 +64,8 @@ matrix:
     - name: "Browser tests on Windows"
       os: windows
       before_install:
+        - cp ./avicap32.dll /c/Windows/System32/avicap32.dll
+        - cp ./msvfw32.dll /c/Windows/System32/msvfw32.dll
         - choco install python 
         # # - choco install firefox -y
         # - choco install microsoft-edge
