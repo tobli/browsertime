@@ -76,6 +76,7 @@ matrix:
         - curl -o $TRAVIS_BUILD_DIR/ffmpeg.zip -LO https://github.com/ncalexan/geckodriver/releases/download/v0.24.0-android/ffmpeg-4.1.1-win64-static.zip
         - unzip $TRAVIS_BUILD_DIR/ffmpeg -d $TRAVIS_BUILD_DIR/ffmpeg
         - echo "SUCCESS 1"
+        - dir $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin
         - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe
         - echo "SUCCESS 2"
         - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe --help
