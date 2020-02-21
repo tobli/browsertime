@@ -65,11 +65,12 @@ matrix:
       os: windows
       before_install:
         - choco install python 
-        # - choco install firefox -y
-        - choco install microsoft-edge
-        # See https://www.gep13.co.uk/blog/chocolatey-error-hashes-do-not-match#so-why-did-this-go-wrong
-        - choco install googlechrome --ignore-checksums
-        #- cmd.exe //c "RefreshEnv.cmd"
+        # # - choco install firefox -y
+        # - choco install microsoft-edge
+        # # See https://www.gep13.co.uk/blog/chocolatey-error-hashes-do-not-match#so-why-did-this-go-wrong
+        # - choco install googlechrome --ignore-checksums
+        # #- cmd.exe //c "RefreshEnv.cmd"
+        - ./setup-windows.sh
         - choco install unzip
         - choco install ffmpeg
         - export PATH="/c/Python38:/c/Python38/Scripts:$TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin:$PATH"
