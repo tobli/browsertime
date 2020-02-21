@@ -76,7 +76,7 @@ matrix:
         - export PATH="/c/Python38:/c/Python38/Scripts:$TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin:$PATH"
         - RefreshEnv.cmd
         - echo $PATH
-        - $TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin/ffmpeg.exe
+        # - $TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin/ffmpeg.exe
         - ffmpeg.exe
         - python ./browsertime/visualmetrics.py --check
       script:
