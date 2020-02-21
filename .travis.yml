@@ -79,7 +79,7 @@ matrix:
         - unzip $TRAVIS_BUILD_DIR/ffmpeg -d $TRAVIS_BUILD_DIR/ffmpeg
         - echo "SUCCESS 1"
         - dir $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin
-        - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe
+        # - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe
         - echo "SUCCESS 2"
         - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe --help
         - echo "SUCCESS 3"
