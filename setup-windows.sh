@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 
 choco install curl
 choco install unzip
