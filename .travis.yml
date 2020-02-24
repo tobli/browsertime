@@ -75,7 +75,7 @@ matrix:
         - choco install unzip
         # Install ImageMagick
         - curl -o $TRAVIS_BUILD_DIR/imagemagick.zip -LO https://ftp.icm.edu.pl/packages/ImageMagick/binaries/ImageMagick-7.0.8-39-portable-Q16-x64.zip
-        - unzip $TRAVIS_BUILD_DIR/imagemagick -d $TRAVIS_BUILD_DIR/imagemagick > /dev/null 2>&1
+        - unzip $TRAVIS_BUILD_DIR/imagemagick -d $TRAVIS_BUILD_DIR/imagemagick || true
         - export PATH="$TRAVIS_BUILD_DIR/imagemagick:$PATH"
         - RefreshEnv.cmd
         # Install FFMPEG
