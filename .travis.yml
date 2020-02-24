@@ -64,10 +64,6 @@ matrix:
     - name: "Browser tests on Windows"
       os: windows
       before_install:
-        # Required for vfwcap input device - I don't think browsertime uses this?
-        # See here for info http://ffmpeg.org/pipermail/ffmpeg-trac/2017-November/042149.html
-        - cp ./avicap32.dll /c/Windows/System32/avicap32.dll
-        - cp ./msvfw32.dll /c/Windows/System32/msvfw32.dll
         - choco install python 
         # # - choco install firefox -y
         # - choco install microsoft-edge
@@ -77,22 +73,22 @@ matrix:
         # - ./setup-windows.sh
         - choco install curl
         - choco install unzip
+        # Install ImageMagick
+        - curl -o $TRAVIS_BUILD_DIR/imagemagick.zip -LO https://ftp.icm.edu.pl/packages/ImageMagick/binaries/ImageMagick-7.0.8-39-portable-Q16-x64.zip
+        - unzip $TRAVIS_BUILD_DIR/imagemagick -d $TRAVIS_BUILD_DIR/imagemagick
+        - export PATH="$TRAVIS_BUILD_DIR/imagemagick:$PATH"
+        - RefreshEnv.cmd
+        # Install FFMPEG
+        # Required for vfwcap input device - I don't think browsertime uses this?
+        # See here for info http://ffmpeg.org/pipermail/ffmpeg-trac/2017-November/042149.html
+        - cp ./avicap32.dll /c/Windows/System32/avicap32.dll
+        - cp ./msvfw32.dll /c/Windows/System32/msvfw32.dll
         - curl -o $TRAVIS_BUILD_DIR/ffmpeg.zip -LO https://github.com/ncalexan/geckodriver/releases/download/v0.24.0-android/ffmpeg-4.1.1-win64-static.zip
         - unzip $TRAVIS_BUILD_DIR/ffmpeg -d $TRAVIS_BUILD_DIR/ffmpeg
-        - echo "SUCCESS 1"
-        - dir $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin
-        # - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe
-        - echo "SUCCESS 2"
-        - $TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe --help
-        - echo "SUCCESS 3"
         - export PATH="$TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/:$PATH"
-        # - choco install unzip
-        # - choco install ffmpeg
-        # - export PATH="$TRAVIS_BUILD_DIR/ffmpeg/bin:$PATH"
         - RefreshEnv.cmd
         - echo $PATH
-        # - $TRAVIS_BUILD_DIR/ffmpeg-20200216-8578433-win64-static/bin/ffmpeg.exe
-        # - ffmpeg.exe
+        # Run vismet check
         - python ./browsertime/visualmetrics.py --check
       script:
         - node ./bin/browsertime.js -b chrome -n 1 --cpu -r header:value --screenshot https://www.sitespeed.io/documentation/
