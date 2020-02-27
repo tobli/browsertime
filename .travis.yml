@@ -64,7 +64,8 @@ matrix:
     - name: "Browser tests on Windows"
       os: windows
       before_install:
-        - choco install python 
+        - choco install python
+        - choco install pip
         # # - choco install firefox -y
         # - choco install microsoft-edge
         # # See https://www.gep13.co.uk/blog/chocolatey-error-hashes-do-not-match#so-why-did-this-go-wrong
@@ -86,7 +87,6 @@ matrix:
         - curl -o $TRAVIS_BUILD_DIR/ffmpeg.zip -LO https://github.com/ncalexan/geckodriver/releases/download/v0.24.0-android/ffmpeg-4.1.1-win64-static.zip
         - unzip $TRAVIS_BUILD_DIR/ffmpeg -d $TRAVIS_BUILD_DIR/ffmpeg
         - export PATH="$TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/:$PATH"
-        - export PATH="$PATH:/c/Python38:/c/Python38/Scripts"
         - RefreshEnv.cmd
         - echo $PATH
         - python -m pip install --upgrade --user pip
