@@ -86,7 +86,8 @@ matrix:
         - cp ./msvfw32.dll /c/Windows/System32/msvfw32.dll
         - curl -o $TRAVIS_BUILD_DIR/ffmpeg.zip -LO https://github.com/ncalexan/geckodriver/releases/download/v0.24.0-android/ffmpeg-4.1.1-win64-static.zip
         - unzip $TRAVIS_BUILD_DIR/ffmpeg -d $TRAVIS_BUILD_DIR/ffmpeg
-        - export PATH="$TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/:/c/Python38:/c/Python38/Scripts:$PATH"
+        - export PATH="$TRAVIS_BUILD_DIR/ffmpeg/ffmpeg-4.1.1-win64-static/bin/:$PATH"
+        - export PATH="$PATH:/c/Python38:/c/Python38/Scripts"
         - RefreshEnv.cmd
         - echo $PATH
         - python -m pip install --upgrade --user pip
@@ -95,7 +96,6 @@ matrix:
         - python -m pip --version
         - python -m pip show Pillow
         - python -m pip show pyssim
-        - echo $PATH
         # Run vismet check
         - python ./browsertime/visualmetrics.py --check
       script:
