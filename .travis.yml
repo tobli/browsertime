@@ -95,6 +95,7 @@ matrix:
         - python -m pip --version
         - python -m pip show Pillow
         - python -m pip show pyssim
+        - echo $PATH
         # Run vismet check
         - python ./browsertime/visualmetrics.py --check
       script:
