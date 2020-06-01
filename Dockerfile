@@ -1,10 +1,8 @@
-FROM sitespeedio/webbrowsers:chrome-75-firefox-67.0.1
+FROM sitespeedio/webbrowsers:chrome-83.0-firefox-76.0
 
 ENV BROWSERTIME_XVFB true
 ENV BROWSERTIME_CONNECTIVITY__ENGINE external
 ENV BROWSERTIME_DOCKER true
-ENV BROWSERTIME_VIDEO true
-ENV BROWSERTIME_visualMetrics true
 
 COPY docker/webpagereplay/wpr /usr/local/bin/
 COPY docker/webpagereplay/wpr_cert.pem /webpagereplay/certs/
@@ -13,7 +11,7 @@ COPY docker/webpagereplay/deterministic.js /webpagereplay/scripts/deterministic.
 COPY docker/webpagereplay/LICENSE /webpagereplay/
 
 RUN sudo apt-get update && sudo apt-get install libnss3-tools \
-  net-tools -y && \
+  net-tools tcpdump -y && \
   mkdir -p $HOME/.pki/nssdb && \
   certutil -d $HOME/.pki/nssdb -N
 
@@ -38,5 +36,9 @@ ADD docker/adb/insecure_shared_adbkey.pub /root/.android/adbkey.pub
 WORKDIR /browsertime
 
 COPY docker/scripts/start.sh /start.sh
+
+# Allow all users to run commands needed by sitespeedio/throttle via sudo
+# See https://github.com/sitespeedio/throttle/blob/master/lib/tc.js
+RUN echo 'ALL ALL=NOPASSWD: /usr/sbin/tc, /usr/sbin/route, /usr/sbin/ip, /usr/sbin/tcpdump ' > /etc/sudoers.d/tc
 
 ENTRYPOINT ["/start.sh"]
