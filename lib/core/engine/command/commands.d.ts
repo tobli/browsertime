@@ -1,3 +1,5 @@
+
+
 declare namespace commands {
   /** Navigate to a URL without measuring it. */
   function navigate(url: string): Promise<void>;
@@ -13,8 +15,14 @@ declare namespace commands {
     /** Add text to an element with Selenium sendKeys. Throws an error if the xpath is not found. */
     function bySelector(text: string, xpath: string): { error?: Promise<void> };
 
-    /** Add text to an element with Selenium sendKeys.T hrows an error if the selector is not found. */
+    /** Add text to an element with Selenium sendKeys. Throws an error if the selector is not found. */
     function byXpath(text: string, selector: string): { error?: Promise<void> };
+
+    /** Add text to an element with Selenium sendKeys. Throws an error if the name is not found. */
+    function byName(text: string, name: string): { error?: Promise<void> };
+
+     /** Add text to an element with Selenium sendKeys. Throws an error if the class name is not found. */
+    function byClassName(text:string, className:string): { error?: Promise<void> };
   }
 
   /** Clear the browser cache. */
@@ -96,6 +104,12 @@ declare namespace commands {
 
     /**  Stop measuring and collect all the metrics. Promise object represents wh all the metrics has been collected. */
     function stop(): { error?: Promise<void> };
+
+    /** Add your own measurements directly from your script.  */
+    function add(name:string, value: number) 
+
+    /** Add your own measurements directly from your script.  { a: 1, b: 2, c: 3} */
+    function addObject(object: Object.<string, number>)
   }
 
   /** Set values of HTML elements. */
@@ -134,6 +148,12 @@ declare namespace commands {
 
     /** Wait for an element with xpath to appear for maxTime. */
     function byXpath(xpath: string, maxTime: number): { error?: Promise<void> };
+
+     /** Wait for an element with selector to appear for maxTime. */
+    function bySelector(selector: string, maxTime: number)
+
+    /** Wait for the page to finish loading by using the configured pageCompleteCheck */
+    function byPageToComplete(): { error?: Promise<void> };
   }
   /** Set meta data for a script. */
   namespace meta {
@@ -153,4 +173,18 @@ declare namespace commands {
       args: object
     ): { error?: Promise<object> };
   }
+
+  /** Use when running tests on your Android phone */
+  namespace android {
+    /** Run a shell command directly on your phone */
+    function shell(command: string):  { error?: Promise<any> };
+  }
+
+
+  /** Use when you want to take a screenshot */
+  namespace screenshot {
+    /** Take a screenshot. Give your screenshot a name. */
+    function take(name: string):  { error?: Promise<any> };
+  }
+
 }
